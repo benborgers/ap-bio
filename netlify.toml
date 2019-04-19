@@ -4,3 +4,9 @@
 
 [dev]
   command = "gatsby develop"
+  
+[[redirects]]
+  from = "https://ap-bio-elk.netlify.com"
+  to = "https://bio.elk.sh"
+  status = 301
+  force = true
