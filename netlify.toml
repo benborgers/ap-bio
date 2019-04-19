@@ -6,7 +6,7 @@
   command = "gatsby develop"
   
 [[redirects]]
-  from = "https://ap-bio-elk.netlify.com"
-  to = "https://bio.elk.sh"
+  from = "https://ap-bio-elk.netlify.com/*"
+  to = "https://bio.elk.sh/:splat"
   status = 301
   force = true
