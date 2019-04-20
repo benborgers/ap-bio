@@ -20,7 +20,12 @@ export default ({ children }) => {
   ).site.siteMetadata
   
   return (
-    <div>
+    <div
+      css={css`
+        background-color: white;
+        min-height: 100vh;
+      `}
+    >
       <Helmet>
         <title>{siteMetadata.title}</title>
         <meta name="description" content={siteMetadata.description} />
@@ -55,7 +60,20 @@ export default ({ children }) => {
             color: ${colors.black};
             font-weight: 500;
           `}
-        >{siteMetadata.title}</p>
+        >
+          {siteMetadata.title}
+          {siteMetadata.isWorkInProgress ? <span
+            css={css`
+              background-color: ${colors.main};
+              font-weight: inherit;
+              margin-left: 8px;
+              font-size: 14px;
+              padding: 6px 8px;
+              color: white;
+              border-radius: 4px;
+            `}
+          >Work In Progress</span> : ''}
+        </p>
       </header>
       
       <main
@@ -70,6 +88,9 @@ export default ({ children }) => {
         css={css`
           background-color: ${colors.lightgray};
           padding: 24px;
+          position: absolute;
+          bottom: 0;
+          width: calc(100vw - 48px);
         `}
       >
         <p>Made by <a href="https://instagram.com/bborgers">Ben Borgers</a> — Good luck 🌻</p>
