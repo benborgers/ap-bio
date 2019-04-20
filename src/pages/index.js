@@ -2,9 +2,8 @@ import React from 'react'
 import Layout from '../components/layout'
 import Intro from '../components/intro'
 import Block from '../components/block'
-import { Helmet } from 'react-helmet'
+import bigIdea from '../util/bigIdea'
 import { graphql } from 'gatsby'
-import { css } from '@emotion/core'
 
 export default ({ data }) => {
   const nodes = data.allAirtable.edges;
@@ -21,11 +20,15 @@ export default ({ data }) => {
           This study guide focuses on studying through active recall — that is, studying by trying to recall information, instead of just reading notes.
         </p>
         <p>
-          It's organized using the Big Ideas and Enduring Understandings put out by the College Board for this exam. 
+          It's organized into the Big Ideas and Enduring Understandings put out by the College Board for this exam. 
         </p>
       </Intro>
       
-      <Block to="/hi" text="Go to hi!" />
+      {uniqueBigIdeaNumbers.map((number, i) => (
+        <Block key={i} to={'big-idea-' + number} text={
+          `Big Idea ${number}: ${bigIdea[number].statement}`
+        }/>
+      ))}
       
     </Layout>
   )

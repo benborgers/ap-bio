@@ -24,6 +24,7 @@ export default ({ children }) => {
       css={css`
         background-color: white;
         min-height: 100vh;
+        position: relative;
       `}
     >
       <Helmet>
@@ -45,13 +46,18 @@ export default ({ children }) => {
             background: transparent;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            -webkit-tap-highlight-color: transparent;
+          }
+          
+          body {
+            background-color: ${colors.lightmain};
           }
         `}
       />
     
       <header
         css={css`
-          background-color: ${colors.lightgray};
+          background-color: ${colors.lightmain};
           padding: 24px;
         `}
       >
@@ -71,8 +77,9 @@ export default ({ children }) => {
               padding: 6px 8px;
               color: white;
               border-radius: 4px;
+              text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
             `}
-          >Work In Progress</span> : ''}
+          >Work in Progress</span> : ''}
         </p>
       </header>
       
@@ -86,14 +93,14 @@ export default ({ children }) => {
       
       <footer
         css={css`
-          background-color: ${colors.lightgray};
+          background-color: ${colors.lightmain};
           padding: 24px;
           position: absolute;
           bottom: 0;
           width: calc(100vw - 48px);
         `}
       >
-        <p>Made by <a href="https://instagram.com/bborgers">Ben Borgers</a> — Good luck 🌻</p>
+        <p>Made by <a href="https://instagram.com/bborgers">Ben Borgers</a> — Good luck! 🌻</p>
       </footer>
     </div>
   )

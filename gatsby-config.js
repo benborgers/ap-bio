@@ -12,7 +12,8 @@ module.exports = {
         tables: [
           {
             baseId: process.env.AIRTABLE_BASE,
-            tableName: `Review Questions`
+            tableName: `Review Questions`,
+            tableView: `Grid view`
           }
         ]
       }
