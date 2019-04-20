@@ -48,18 +48,21 @@ export default ({ children }) => {
         css={css`
           background-color: ${colors.lightgray};
           padding: 24px;
-        `}>
+        `}
+      >
         <p
           css={css`
             color: ${colors.black};
             font-weight: 500;
-          `}>{siteMetadata.title}</p>
+          `}
+        >{siteMetadata.title}</p>
       </header>
       
       <main
         css={css`
           padding: 24px;
-      `}>
+        `}
+      >
         {children}
       </main>
       
@@ -67,7 +70,8 @@ export default ({ children }) => {
         css={css`
           background-color: ${colors.lightgray};
           padding: 24px;
-      `}>
+        `}
+      >
         <p>Made by <a href="https://instagram.com/bborgers">Ben Borgers</a> — Good luck 🌻</p>
       </footer>
     </div>
