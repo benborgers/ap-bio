@@ -122,7 +122,9 @@ export default ({ children, isIndex }) => {
         `}
       >
         <p>
-          {isIndex ? ["Made by ", <a href="https://instagram.com/bborgers">Ben Borgers</a>, "."] : "Good luck! 🌻"}
+          {isIndex ? "Made by " : "Good luck! 🌻"}
+          {isIndex ? <a href="https://instagram.com/bborgers">Ben Borgers</a>: ""}
+          {isIndex ? "." : ""}
         </p>
       </footer>
     </div>
