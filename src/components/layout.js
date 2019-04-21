@@ -101,7 +101,7 @@ export default ({ children, isIndex }) => {
                 border-radius: 4px;
                 text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
               `}
-            >Work in Progress</span> : ''}
+            >Work in Progress</span> : ""}
           </p>
         </header>
       </Link>
@@ -116,14 +116,13 @@ export default ({ children, isIndex }) => {
       
       <footer
         css={css`
-          padding: 24px 0;
+          padding-top: 20px;
+          padding-bottom: 32px;
           border-top: 1px solid ${colors.middlemain};
         `}
       >
         <p>
-          {isIndex ? "Made by " : "Good luck! 🌻"}
-          {isIndex ? <a href="https://instagram.com/bborgers">Ben Borgers</a> : ""}
-          {isIndex ? "." : ""}
+          {isIndex ? ["Made by ", <a href="https://instagram.com/bborgers">Ben Borgers</a>, "."] : "Good luck! 🌻"}
         </p>
       </footer>
     </div>
