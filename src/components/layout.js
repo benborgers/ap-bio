@@ -1,10 +1,10 @@
 import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql, Link } from 'gatsby'
 import { css, Global } from '@emotion/core'
 import { colors } from '../util/theme.js'
 import { Helmet } from 'react-helmet'
 
-export default ({ children }) => {
+export default ({ children, isIndex }) => {
   const siteMetadata = useStaticQuery(
     graphql`
       query {
@@ -24,13 +24,15 @@ export default ({ children }) => {
       css={css`
         background-color: white;
         min-height: 100vh;
-        position: relative;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
       `}
     >
       <Helmet>
         <title>{siteMetadata.title}</title>
         <meta name="description" content={siteMetadata.description} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="https://emojicdn.elk.sh/🧬" />
       </Helmet>
     
       <Global
@@ -52,36 +54,48 @@ export default ({ children }) => {
           body {
             background-color: ${colors.lightmain};
           }
+          
+          ::selection {
+            background-color: ${colors.lightmain};
+            color: ${colors.black};
+          }
         `}
       />
     
-      <header
+      <Link
+        to="/"
         css={css`
-          background-color: ${colors.lightmain};
-          padding: 24px;
+          text-decoration: none;
         `}
       >
-        <p
+        <header
           css={css`
-            color: ${colors.black};
-            font-weight: 500;
+            background-color: ${colors.lightmain};
+            padding: 24px;
           `}
         >
-          {siteMetadata.title}
-          {siteMetadata.isWorkInProgress ? <span
+          <p
             css={css`
-              background-color: ${colors.main};
-              font-weight: inherit;
-              margin-left: 8px;
-              font-size: 14px;
-              padding: 6px 8px;
-              color: white;
-              border-radius: 4px;
-              text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+              color: ${colors.black};
+              font-weight: 600;
             `}
-          >Work in Progress</span> : ''}
-        </p>
-      </header>
+          >
+            {siteMetadata.title}
+            {siteMetadata.isWorkInProgress ? <span
+              css={css`
+                background-color: ${colors.main};
+                font-weight: inherit;
+                margin-left: 8px;
+                font-size: 14px;
+                padding: 6px 8px;
+                color: white;
+                border-radius: 4px;
+                text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+              `}
+            >Work in Progress</span> : ''}
+          </p>
+        </header>
+      </Link>
       
       <main
         css={css`
@@ -95,12 +109,13 @@ export default ({ children }) => {
         css={css`
           background-color: ${colors.lightmain};
           padding: 24px;
-          position: absolute;
-          bottom: 0;
-          width: calc(100vw - 48px);
         `}
       >
-        <p>Made by <a href="https://instagram.com/bborgers">Ben Borgers</a> — Good luck! 🌻</p>
+        <p>
+          {isIndex ? "Made by " : "Good luck! 🌻"}
+          {isIndex ? <a href="https://instagram.com/bborgers">Ben Borgers</a> : ""}
+          {isIndex ? "." : ""}
+        </p>
       </footer>
     </div>
   )

@@ -21,7 +21,7 @@ export default props => (
       <p
         css={css`
           color: white;
-          font-size: 20px;
+          font-size: 18px;
           font-weight: 600;
         `}
       >
