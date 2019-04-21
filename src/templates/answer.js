@@ -20,14 +20,17 @@ export default ({ pageContext: { row } }) => {
     `
   ).site.siteMetadata
   
+  const title = `${row.Question} | ${siteMetadata.title}`;
+  const description = row.Answer.replace(/<\/(p|li)>/g, ' ').replace(/<.*?>/g, '').substr(0, 290) + '...';
+  
   return (
     <Layout>
       <Helmet>
-        <title>{`${row.Question} | ${siteMetadata.title}`}</title>
-        <meta property="og:title" content={`${row.Question} | ${siteMetadata.title}`} />
+        <title>{title}</title>
+        <meta property="og:title" content={title} />
         
-        <meta name="description" content={row.Answer.replace(/<\/(p|li)>/g, ' ').replace(/<.*?>/g, '').substr(0, 290) + "..."} />
-        <meta property="og:description" content={row.Answer.replace(/<\/(p|li)>/g, ' ').replace(/<.*?>/g, '').substr(0, 290) + "..."} />
+        <meta name="description" content={description} />
+        <meta property="og:description" content={description} />
       </Helmet>
     
       <BackButton to={'/big-idea-' + row.Big_Idea} />

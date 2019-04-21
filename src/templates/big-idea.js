@@ -52,14 +52,17 @@ export default ({ pageContext: { categorizedQuestions } }) => {
     })
   }
   
+  const title = `Big Idea ${bigIdeaNumber} | ${siteMetadata.title}`;
+  const description = `Practice questions for active recall about Big Idea ${bigIdeaNumber}: ${bigIdeaStatement}`;
+  
   return (
     <Layout>
       <Helmet>
-        <title>{`Big Idea ${bigIdeaNumber} | ${siteMetadata.title}`}</title>
-        <meta property="og:title" content={`Big Idea ${bigIdeaNumber} | ${siteMetadata.title}`} />
+        <title>{title}</title>
+        <meta property="og:title" content={title} />
         
-        <meta name="description" content={`Practice questions for active recall about Big Idea ${bigIdeaNumber}: ${bigIdeaStatement}`} />
-        <meta property="og:description" content={`Practice questions for active recall about Big Idea ${bigIdeaNumber}: ${bigIdeaStatement}`} />
+        <meta name="description" content={description} />
+        <meta property="og:description" content={description} />
       </Helmet>
       
       <BackButton to="/" />
