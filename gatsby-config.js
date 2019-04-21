@@ -19,6 +19,13 @@ module.exports = {
       }
     },
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-emotion`
+    `gatsby-plugin-emotion`,
+    {
+      resolve: `gatsby-plugin-fathom`,
+      options: {
+        trackingUrl: `ben.usesfathom.com`,
+        siteId: `ABCCMBVP`
+      }
+    }
   ]
 }
