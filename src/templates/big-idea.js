@@ -7,8 +7,22 @@ import BackButton from '../components/backButton'
 import Eyebrow from '../components/eyebrow'
 import Heading from '../components/heading'
 import { css } from '@emotion/core'
+import { Helmet } from 'react-helmet'
+import { useStaticQuery, graphql } from 'gatsby'
 
 export default ({ pageContext: { categorizedQuestions } }) => {
+  const siteMetadata = useStaticQuery(
+    graphql`
+      query {
+        site {
+          siteMetadata {
+            title
+          }
+        }
+      }
+    `
+  ).site.siteMetadata
+  
   // q for the first question — doesn't matter which one, really
   let q;
   for(const letter in categorizedQuestions) {
@@ -40,6 +54,14 @@ export default ({ pageContext: { categorizedQuestions } }) => {
   
   return (
     <Layout>
+      <Helmet>
+        <title>{`Big Idea ${bigIdeaNumber} | ${siteMetadata.title}`}</title>
+        <meta property="og:title" content={`Big Idea ${bigIdeaNumber} | ${siteMetadata.title}`} />
+        
+        <meta name="description" content={`Practice questions for active recall about Big Idea ${bigIdeaNumber}: ${bigIdeaStatement}`} />
+        <meta property="og:description" content={`Practice questions for active recall about Big Idea ${bigIdeaNumber}: ${bigIdeaStatement}`} />
+      </Helmet>
+      
       <BackButton to="/" />
       <Eyebrow text={"Big Idea " + bigIdeaNumber} />
       <Heading text={bigIdeaStatement} />

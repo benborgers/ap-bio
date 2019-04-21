@@ -35,7 +35,11 @@ export default ({ children, isIndex }) => {
     >
       <Helmet>
         <title>{siteMetadata.title}</title>
+        <meta property="og:title" content={siteMetadata.title} />
+        
         <meta name="description" content={siteMetadata.description} />
+        <meta property="og:description" content={siteMetadata.description} />
+        
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="shortcut icon" href="https://emojicdn.elk.sh/🧬" />
       </Helmet>
