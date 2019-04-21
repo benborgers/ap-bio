@@ -26,6 +26,11 @@ export default ({ children, isIndex }) => {
         min-height: 100vh;
         display: grid;
         grid-template-rows: auto 1fr auto;
+        grid-template-columns: minmax(24px, 1fr) minmax(0, 720px) minmax(24px, 1fr);
+        
+        > * {
+          grid-column: 2;
+        }
       `}
     >
       <Helmet>
@@ -70,8 +75,8 @@ export default ({ children, isIndex }) => {
       >
         <header
           css={css`
-            background-color: ${colors.lightmain};
-            padding: 24px;
+            padding: 24px 0;
+            padding-top: 36px;
           `}
         >
           <p
@@ -99,7 +104,7 @@ export default ({ children, isIndex }) => {
       
       <main
         css={css`
-          padding: 24px;
+          padding: 24px 0;
         `}
       >
         {children}
@@ -107,8 +112,9 @@ export default ({ children, isIndex }) => {
       
       <footer
         css={css`
-          background-color: ${colors.lightmain};
-          padding: 24px;
+          padding: 24px 0;
+          padding-bottom: 36px;
+          border-top: 1px solid ${colors.middlemain};
         `}
       >
         <p>

@@ -1,6 +1,7 @@
 module.exports = {
   colors: {
     main: `rgba(78, 189, 148, 1)`,
+    middlemain: `rgba(195, 214, 207, 1)`,
     lightmain: `rgba(243, 255, 248, 1)`,
     
     // text colors
