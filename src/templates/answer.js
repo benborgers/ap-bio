@@ -34,7 +34,7 @@ export default ({ pageContext: { row } }) => {
       </Helmet>
     
       <BackButton to={'/big-idea-' + row.Big_Idea} />
-      <Eyebrow text={"Big Idea " + row.Big_Idea + '.' + row.Enduring_Understanding} />
+      <Eyebrow text={"Big Idea " + row.Big_Idea + "." + row.Enduring_Understanding} />
       <Heading text={row.Question} />
       <div
         css={css`
