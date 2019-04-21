@@ -113,7 +113,6 @@ export default ({ children, isIndex }) => {
       <footer
         css={css`
           padding: 24px 0;
-          padding-bottom: 36px;
           border-top: 1px solid ${colors.middlemain};
         `}
       >
