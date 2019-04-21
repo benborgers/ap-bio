@@ -12,12 +12,19 @@ export default ({ pageContext: { row } }) => (
     <Heading text={row.Question} />
     <div
       css={css`
+        margin-top: 24px;
+        
         p, li {
           line-height: 1.5;
         }
         
         p, ul {
           margin-bottom: 24px;
+        }
+        
+        li {
+          list-style-position: outside;
+          margin-left: 16px;
         }
         
         strong {
