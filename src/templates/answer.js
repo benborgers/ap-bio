@@ -4,23 +4,10 @@ import BackButton from '../components/backButton'
 import Eyebrow from '../components/eyebrow'
 import Heading from '../components/heading'
 import { css } from '@emotion/core'
-import { useStaticQuery, graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 
 export default ({ pageContext: { row } }) => {
-  const siteMetadata = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-          }
-        }
-      }
-    `
-  ).site.siteMetadata
-  
-  const title = `${row.Question} | ${siteMetadata.title}`;
+  const title = `${row.Question}`;
   const description = row.Answer.replace(/<\/(p|li)>/g, ' ').replace(/<.*?>/g, '').substr(0, 290) + '...';
   
   return (

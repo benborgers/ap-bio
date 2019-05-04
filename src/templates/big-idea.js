@@ -8,21 +8,8 @@ import Eyebrow from '../components/eyebrow'
 import Heading from '../components/heading'
 import { css } from '@emotion/core'
 import { Helmet } from 'react-helmet'
-import { useStaticQuery, graphql } from 'gatsby'
 
 export default ({ pageContext: { categorizedQuestions } }) => {
-  const siteMetadata = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-          }
-        }
-      }
-    `
-  ).site.siteMetadata
-  
   // q for the first question — doesn't matter which one, really
   let q;
   for(const letter in categorizedQuestions) {
@@ -52,7 +39,7 @@ export default ({ pageContext: { categorizedQuestions } }) => {
     })
   }
   
-  const title = `Big Idea ${bigIdeaNumber} | ${siteMetadata.title}`;
+  const title = `Big Idea ${bigIdeaNumber}`;
   const description = `Practice questions for active recall about Big Idea ${bigIdeaNumber}: ${bigIdeaStatement}`;
   
   return (
