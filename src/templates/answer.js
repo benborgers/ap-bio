@@ -4,6 +4,7 @@ import Eyebrow from '../components/eyebrow'
 import Heading from '../components/heading'
 import { css } from '@emotion/core'
 import { Helmet } from 'react-helmet'
+import { Link } from 'gatsby'
 
 export default ({ pageContext: { row } }) => {
   const title = `${row.Question}`;
@@ -19,7 +20,10 @@ export default ({ pageContext: { row } }) => {
         <meta property="og:description" content={description} />
       </Helmet>
     
-      <Eyebrow text={"Big Idea " + row.Big_Idea + "." + row.Enduring_Understanding} />
+      <Link to={"/big-idea-" + row.Big_Idea} css={css`text-decoration: none;`}>
+        <Eyebrow text={"Big Idea " + row.Big_Idea + "." + row.Enduring_Understanding} />
+      </Link>
+      
       <Heading text={row.Question} />
       <div
         css={css`
