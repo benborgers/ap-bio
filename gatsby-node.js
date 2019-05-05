@@ -148,12 +148,12 @@ exports.onPostBuild = ({ graphql }) => {
     let searchSource = [];
     
     for(const datum of data) {
-      const cleanAnswer = datum.node.fields.answerHtml.replace(/<(.*?)>/g, ' ');
+      const cleanAnswer = datum.node.fields.answerHtml.replace(/<(.*?)>/g, ' ').replace(/ */g, '').toLowerCase();
       
       searchSource.push({
         question: datum.node.data.Question,
         slug: datum.node.fields.slug,
-        questionAndAnswer: datum.node.data.Question + ' ' + cleanAnswer
+        questionAndAnswer: datum.node.data.Question.toLowerCase().replace(/ */g, '') + cleanAnswer
       })
     }
     
