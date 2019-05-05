@@ -3,7 +3,7 @@ module.exports = {
     siteUrl: `https://bio.elk.sh`,
     title: `Bio AP Study Guide`,
     description: `A study guide for the Biology AP Test, focused on studying through active recall by quizzing yourself instead of reading notes.`,
-    isWorkInProgress: true
+    isWorkInProgress: false
   },
   plugins: [
     {
