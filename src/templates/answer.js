@@ -1,6 +1,5 @@
 import React from 'react'
 import Layout from '../components/layout'
-import BackButton from '../components/backButton'
 import Eyebrow from '../components/eyebrow'
 import Heading from '../components/heading'
 import { css } from '@emotion/core'
@@ -20,7 +19,6 @@ export default ({ pageContext: { row } }) => {
         <meta property="og:description" content={description} />
       </Helmet>
     
-      <BackButton to={'/big-idea-' + row.Big_Idea} />
       <Eyebrow text={"Big Idea " + row.Big_Idea + "." + row.Enduring_Understanding} />
       <Heading text={row.Question} />
       <div

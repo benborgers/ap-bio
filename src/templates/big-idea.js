@@ -3,7 +3,6 @@ import Layout from '../components/layout'
 import Intro from '../components/intro'
 import Block from '../components/block'
 import bigIdea from '../util/bigIdea'
-import BackButton from '../components/backButton'
 import Eyebrow from '../components/eyebrow'
 import Heading from '../components/heading'
 import { css } from '@emotion/core'
@@ -52,7 +51,6 @@ export default ({ pageContext: { categorizedQuestions } }) => {
         <meta property="og:description" content={description} />
       </Helmet>
       
-      <BackButton to="/" />
       <Eyebrow text={"Big Idea " + bigIdeaNumber} />
       <Heading text={bigIdeaStatement} />
       
