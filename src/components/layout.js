@@ -3,6 +3,7 @@ import { useStaticQuery, graphql, Link } from 'gatsby'
 import { css, Global } from '@emotion/core'
 import { colors } from '../util/theme.js'
 import { Helmet } from 'react-helmet'
+import { Search } from 'react-feather'
 
 export default ({ children, isIndex }) => {
   const siteMetadata = useStaticQuery(
@@ -71,40 +72,56 @@ export default ({ children, isIndex }) => {
         `}
       />
     
-      <Link
-        to="/"
+      
+      <header
         css={css`
-          text-decoration: none;
+          padding: 24px 0;
+          padding-top: 36px;
+          display: grid;
+          grid-template-columns: 1fr auto;
         `}
       >
-        <header
-          css={css`
-            padding: 24px 0;
-            padding-top: 36px;
-          `}
-        >
-          <p
+        <div>
+          <Link
+            to="/"
             css={css`
-              color: ${colors.black};
-              font-weight: 600;
+              text-decoration: none;
             `}
           >
-            {siteMetadata.title}
-            {siteMetadata.isWorkInProgress ? <span
+            <p
               css={css`
-                background-color: ${colors.main};
-                font-weight: inherit;
-                margin-left: 8px;
-                font-size: 14px;
-                padding: 6px 8px;
-                color: white;
-                border-radius: 4px;
-                text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+                color: ${colors.black};
+                font-weight: 600;
+                display: inline-block;
               `}
-            >Work in Progress</span> : ""}
-          </p>
-        </header>
-      </Link>
+            >
+              {siteMetadata.title}
+              {siteMetadata.isWorkInProgress ? <span
+                css={css`
+                  background-color: ${colors.main};
+                  font-weight: inherit;
+                  margin-left: 8px;
+                  font-size: 14px;
+                  padding: 6px 8px;
+                  color: white;
+                  border-radius: 4px;
+                  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+                `}
+              >Work in Progress</span> : ""}
+            </p>
+          </Link>
+        </div>
+          
+        <Link to="/search">
+          <Search color={colors.gray} size={20} css={css`
+            * {
+              stroke-width: 2.5px;
+              line-height: 0;
+            }
+          `}/>
+        </Link>
+          
+      </header>
       
       <main
         css={css`
