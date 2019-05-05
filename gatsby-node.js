@@ -1,4 +1,5 @@
-const path = require(`path`)
+const path = require(`path`);
+const fs = require(`fs`);
 
 exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions;
@@ -117,5 +118,45 @@ exports.createPages = async ({ graphql, actions }) => {
       })
     })
     
+  })
+}
+
+exports.onPostBuild = ({ graphql }) => {
+  return graphql(`
+    query {
+      allAirtable(filter: {
+        table: { eq: "Review Questions" }
+        data: {
+          Publish: { eq: true }
+        }
+      }) {
+        edges {
+          node {
+            data {
+              Question
+            }
+            fields {
+              slug
+              answerHtml
+            }
+          }
+        }
+      }
+    }
+  `).then(response => {
+    const data = response.data.allAirtable.edges;
+    let searchSource = [];
+    
+    for(const datum of data) {
+      const cleanAnswer = datum.node.fields.answerHtml.replace(/<(.*?)>/g, ' ');
+      
+      searchSource.push({
+        question: datum.node.data.Question,
+        slug: datum.node.fields.slug,
+        questionAndAnswer: datum.node.data.Question + ' ' + cleanAnswer
+      })
+    }
+    
+    fs.writeFileSync(`./public/search.json`, JSON.stringify(searchSource, null, 2));
   })
 }
