@@ -6,7 +6,12 @@ import { graphql } from 'gatsby'
 
 export default ({ data }) => (
   <Layout isIndex="true">
-  
+    <Intro>
+      <p>
+        This study guide consists of questions for quizzing yourself, organized by the College Board's categories.
+      </p>
+    </Intro>
+    
     {data.allAirtable.distinct.map((number, i) => (
       <Block key={i} to={'/big-idea-' + number} text={
         `Big Idea ${number}: ${bigIdea[number].statement}`
