@@ -1,6 +1,5 @@
 import React from 'react'
 import Layout from '../components/layout'
-import Intro from '../components/intro'
 import Block from '../components/block'
 import bigIdea from '../util/bigIdea'
 import Eyebrow from '../components/eyebrow'
@@ -53,12 +52,6 @@ export default ({ pageContext: { categorizedQuestions } }) => {
       
       <Eyebrow text={"Big Idea " + bigIdeaNumber} />
       <Heading text={bigIdeaStatement} />
-      
-      <Intro>
-        <p>
-          As you read the questions below, see what you recall about the topic before reading the answer.
-        </p>
-      </Intro>
       
       {blocks}
       
