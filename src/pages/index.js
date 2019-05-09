@@ -9,7 +9,7 @@ export default ({ data }) => (
   <Layout isIndex="true">
     <Intro>
       <p>
-        This study guide consists of questions for quizzing yourself, organized by the College Board's categories.
+        This study guide has questions for quizzing yourself, organized by the College Board's categories.
       </p>
     </Intro>
     
