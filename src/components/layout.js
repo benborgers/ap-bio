@@ -43,6 +43,9 @@ export default ({ children, isIndex }) => {
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="shortcut icon" href="https://emojicdn.elk.sh/🧬" />
+        
+        // Google Search Console verification - do not remove to keep site ownership verified
+        <meta name="google-site-verification" content="16Dft6t4AuvD3VKEHCoFfE_6FI1qqUALy5jjYjBEwQ4" />
       </Helmet>
     
       <Global
