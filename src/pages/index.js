@@ -14,7 +14,7 @@ export default ({ data }) => (
     </Intro>
     
     {data.allAirtable.distinct.map((number, i) => (
-      <Block key={i} to={'/big-idea-' + number} text={
+      <Block key={i} to={'/big-idea-' + number + '/'} text={
         `Big Idea ${number}: ${bigIdea[number].statement}`
       }/>
     ))}

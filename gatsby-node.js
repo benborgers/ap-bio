@@ -5,7 +5,7 @@ exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions;
   
   if(node.internal.type === `Airtable`) {
-    const slug = '/' + node.data.Question.trim().toLowerCase().replace(/[^a-z0-9 ]/g, '').replace(/ /g, '-');
+    const slug = '/' + node.data.Question.trim().toLowerCase().replace(/[^a-z0-9 ]/g, '').replace(/ /g, '-') + '/';
     
     createNodeField({
       node,
@@ -98,7 +98,7 @@ exports.createPages = async ({ graphql, actions }) => {
       }
       
       createPage({
-        path: `/big-idea-` + number,
+        path: `/big-idea-` + number + '/',
         component: path.resolve(`./src/templates/big-idea.js`),
         context: {
           categorizedQuestions
