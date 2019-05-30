@@ -8,7 +8,7 @@ import { Link } from 'gatsby'
 
 export default ({ pageContext: { row } }) => {
   const title = `${row.Question}`;
-  const description = row.Answer.replace(/<\/(p|li)>/g, ' ').replace(/<.*?>/g, '').substr(0, 290) + '...';
+  const description = row.Answer.replace(/<\/(p|li)>/g, ' ').replace(/<.*?>/g, '');
   
   return (
     <Layout>
