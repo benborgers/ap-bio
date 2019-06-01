@@ -115,7 +115,7 @@ export default ({ children, isIndex }) => {
           </Link>
         </div>
           
-        <Link to="/search">
+        <Link to="/search/">
           <Search color={colors.gray} size={20} css={css`
             * {
               stroke-width: 2.5px;
