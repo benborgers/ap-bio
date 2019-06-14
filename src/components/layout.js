@@ -65,7 +65,7 @@ export default ({ children, isIndex }) => {
           }
           
           body {
-            background-color: ${colors.lightmain};
+            background-color: white;
           }
           
           ::selection {
