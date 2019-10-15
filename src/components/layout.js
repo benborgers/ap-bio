@@ -142,9 +142,16 @@ export default ({ children, isIndex }) => {
         `}
       >
         <p>
-          {isIndex ? "Made by " : "Good luck! 🌻"}
-          {isIndex ? <a href="https://instagram.com/bborgers">Ben Borgers</a>: ""}
-          {isIndex ? "." : ""}
+          Made by
+          {" "}
+          <a
+            href="https://benborgers.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Ben Borgers
+          </a>
+          . Good luck! 🌻
         </p>
       </footer>
     </div>
