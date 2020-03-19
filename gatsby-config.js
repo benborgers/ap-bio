@@ -9,10 +9,10 @@ module.exports = {
     {
       resolve: `gatsby-source-airtable`,
       options: {
-        apiKey: process.env.AIRTABLE_API_KEY,
+        apiKey: process.env.airtable_api_key,
         tables: [
           {
-            baseId: process.env.AIRTABLE_BASE,
+            baseId: process.env.airtable_base,
             tableName: `Review Questions`,
             tableView: `Grid view`
           }
@@ -24,7 +24,6 @@ module.exports = {
     {
       resolve: `gatsby-plugin-fathom`,
       options: {
-        trackingUrl: `ben.usesfathom.com`,
         siteId: `ABCCMBVP`
       }
     },

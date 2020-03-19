@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps, jsx-a11y/no-autofocus */
+
 import React, { useState, useEffect } from 'react'
 import Heading from '../components/heading'
 import Block from '../components/block'
