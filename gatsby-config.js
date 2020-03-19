@@ -9,10 +9,10 @@ module.exports = {
     {
       resolve: `gatsby-source-airtable`,
       options: {
-        apiKey: process.env.airtable_api_key,
+        apiKey: process.env.AIRTABLE_API_KEY,
         tables: [
           {
-            baseId: process.env.airtable_base,
+            baseId: process.env.AIRTABLE_BASE,
             tableName: `Review Questions`,
             tableView: `Grid view`
           }
